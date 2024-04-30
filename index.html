@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Device Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            margin-top: 20px;
+        }
+        form, table {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Device Dashboard</h1>
+    
+    <h2>Add Activity</h2>
+    <form id="activityForm">
+        <label for="activity_type">Activity Type:</label>
+        <select id="activity_type" name="activity_type" required>
+            <option value="sense_gas">Sense Gas</option>
+            <option value="sense_fire">Sense Fire</option>
+            <option value="load_exceed">Load Exceed</option>
+            <option value="load_lower">Load Lower</option>
+        </select><br><br>
+        
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required><br><br>
+        
+        <input type="submit" value="Add Activity">
+    </form>
+    
+    <h2>Recent Activities</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Activity Type</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody id="dashboard-table-body">
+            <!-- Rows will be added here dynamically -->
+        </tbody>
+    </table>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.0/firebase-firestore.js"></script>
+    <!-- Your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
